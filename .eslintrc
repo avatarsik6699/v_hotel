@@ -1,0 +1,55 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "rules": {
+    "prettier/prettier": 2,
+    "no-var": "error",
+    "semi": "error",
+    "indent": "error",
+    "no-multi-spaces": "error",
+    "space-in-parens": "error",
+    "no-multiple-empty-lines": "error",
+    "prefer-const": "error",
+    "no-use-before-define": "error",
+    "no-console": "warn",
+    "fsd/hof-name-prefix": "error",
+    "fsd/no-heavy-constructor": "off", // запрещает инициализировать $el в DomManipulator
+    "fsd/jq-cache-dom-elements": "error",
+    "fsd/jq-use-js-prefix-in-selector": "error",
+    "fsd/no-function-declaration-in-event-listener": "error",
+    "fsd/split-conditionals": "error",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "consistent-return": "off",
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-empty-function": "off", // не дает делать побочные эффекты в функциях
+    "lines-between-class-members": "off" // не позволяет группировать свойства в классе
+  },
+
+  "plugins": ["@typescript-eslint", "prettier", "fsd"],
+
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
+
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    // "plugin:import/errors",
+    // "plugin:import/warnings",
+    "plugin:import/typescript",
+    "prettier"
+  ]
+}

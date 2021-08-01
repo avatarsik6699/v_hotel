@@ -1,0 +1,8 @@
+{
+  "editor.snippetSuggestions": "top",
+  "breadcrumbs.enabled": true,
+  "git.autofetch": true,
+  "javascript.suggest.names": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": false,
+}
