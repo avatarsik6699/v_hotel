@@ -1,0 +1,11 @@
+include /shared/utiles/svg.pug
+
+mixin Field({label= '', placeholder= '', type='default'})
+  -const hasIcon = type == 'subscription';
+
+  label.field(class=`field_type-${type}`)
+    span.field__label=label
+    input.field__input(placeholder=placeholder)
+    if hasIcon
+      span.field__icon
+        +svg({id: 'arrow', style: {'fill': 'url(#arrow)'}, gradient: {id: 'arrow'}})

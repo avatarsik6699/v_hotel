@@ -1,3 +1,5 @@
+include /shared/views/Field/index.pug
+
 doctype html
 html(lang="en")
   head
@@ -7,3 +9,5 @@ html(lang="en")
     title Document
   body
     h1 Hello world
+    +Field({placeholder:"Email", label:"Text field"})
+    +Field({placeholder:"Email", label:"Text field", type:"subscription"})

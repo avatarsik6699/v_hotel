@@ -16,6 +16,7 @@ const loaders = env => ({
         loader: 'pug-loader',
         options: {
           root: path.resolve(__dirname, 'src'),
+          pretty: true
         },
       },
     ],
@@ -114,7 +115,7 @@ module.exports = env => {
       port: 8080,
       open: true,
     },
-    entry: {index: './src/index.ts'},
+    entry: { index: './src/index.ts' },
     output: {
       filename: '[name].[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
@@ -145,17 +146,19 @@ module.exports = env => {
     ],
     module: {
       rules: [
-      loaders(env).fonts,
-      loaders(env).img,
-      loaders(env).sass,
-      loaders(env).ts,
-      loaders(env).html,
-      loaders(env).pug
-    ]},
+        loaders(env).fonts,
+        loaders(env).img,
+        loaders(env).sass,
+        loaders(env).ts,
+        loaders(env).html,
+        loaders(env).pug,
+      ],
+    },
     resolve: {
       extensions: ['.ts', '.js'],
       alias: {
         '@root': path.resolve(__dirname, './src/'),
+        '@fonts': path.resolve(__dirname, './src/assets/fonts/'),
       },
     },
     optimization: optimization(env),

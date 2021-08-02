@@ -1,0 +1,42 @@
+.field {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  max-width: 320px;
+  @include font("Montserrat");
+
+  &_type-subscription {
+    max-width: 268px;
+  }
+
+  &__label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+  &__input {
+    background: #fff;
+    border: 1px solid rgba(31,32,65,.25);
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    color: rgba(31, 32, 65, 0.75);
+    &::placeholder {
+      color: rgba(31, 32, 65, 0.25);
+    }
+    &:hover {
+      border: 1px solid rgba(31, 32, 65, 0.5);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 13px;
+    top: 30px;
+    height: 20px;
+    width: 19px;
+  }
+}
