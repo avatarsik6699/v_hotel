@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -13,10 +14,10 @@ const loaders = env => ({
     include: path.resolve(__dirname, 'src'),
     use: [
       {
-        loader: 'pug-loader',
+        loader: 'simple-pug-loader',
         options: {
           root: path.resolve(__dirname, 'src'),
-          pretty: true
+          pretty: true,
         },
       },
     ],
@@ -40,15 +41,10 @@ const loaders = env => ({
       { loader: 'sass-loader', options: { sourceMap: env.development } },
     ],
   },
-  img: {
-    test: /\.(png|svg|jpg|jpeg|gif)$/i,
+  assets: {
+    test: /\.(jpe?g|png|gif|svg|eot|ttf|woff2?)$/i,
     include: path.resolve(__dirname, 'src'),
-    type: 'asset/resource',
-  },
-  fonts: {
-    test: /\.(woff|woff2|eot|ttf|otf)$/,
-    include: path.resolve(__dirname, 'src'),
-    use: ['file-loader'],
+    type: 'asset',
   },
   html: {
     test: /\.html$/i,
@@ -146,8 +142,7 @@ module.exports = env => {
     ],
     module: {
       rules: [
-        loaders(env).fonts,
-        loaders(env).img,
+        loaders(env).assets,
         loaders(env).sass,
         loaders(env).ts,
         loaders(env).html,
