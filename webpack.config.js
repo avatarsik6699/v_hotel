@@ -154,6 +154,8 @@ module.exports = env => {
       alias: {
         '@root': path.resolve(__dirname, './src/'),
         '@fonts': path.resolve(__dirname, './src/assets/fonts/'),
+        shared: path.resolve(__dirname, './src/shared/'),
+        '@assets': path.resolve(__dirname, './src/assets/'),
       },
     },
     optimization: optimization(env),

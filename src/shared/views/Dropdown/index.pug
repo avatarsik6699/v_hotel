@@ -1,0 +1,15 @@
+include /shared/utiles/svg.pug
+include ./Menu/index.pug
+-const defaultProps = {type: 'button', value: 'Сколько гостей', label: 'dropdown'}
+
+mixin Dropdown({type, isDisabled, placeholder, value, label} = defaultProps)
+  .dropdown
+    .dropdown__field
+      span.dropdown__label=label
+      input.dropdown__input(
+        type=type 
+        value=value)
+      span.dropdown__icon
+        +svg({id: 'expand_more'})
+    +Menu()
+

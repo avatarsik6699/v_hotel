@@ -1,0 +1,39 @@
+@import '~normalize.css';
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  @include font-family('Montserrat');
+  font-size: $fs;
+}
+
+._container {
+  max-width: $mwc + px;
+  margin: 0 auto;
+  // padding: 0 15px;
+}
+
+// ._wrapper {
+//   display: flex;
+//   flex-flow: column nowrap;
+//   min-height: 100%;
+// }
+
+._main {
+  flex: 1 0 auto;
+}
+
+._footer {
+  flex: 0 0 auto;
+}
+
+// ._footer-title {
+//   @include adaptive-value('font-size', 24, 20, 1);
+//   line-height: 29 / 24 * 100%;
+//   color: #000000;
+//   font-weight: 700;
+// }

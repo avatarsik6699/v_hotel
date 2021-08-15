@@ -1,0 +1,82 @@
+.dropdown__menu {
+  perspective: 1000px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  &-list {
+    backface-visibility: hidden;
+    transform-origin: 0% 0%;
+    opacity: 0;
+    visibility: hidden;
+    transform: rotate3d(1, 0, 0, -90deg);
+    border: 1px solid rgba(31, 32, 65, 0.5);
+    border-top: 0;
+    height: 116px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    transition: all 0.35s;
+    &._opened {
+      visibility: visible;
+      opacity: 1;
+      transform: rotate3d(0, 0, 0, 0);
+    }
+    &:not(:empty) {
+      padding: 0 0 7px 0;
+    }
+  }
+  &-item {
+    display: flex;
+    padding: 5px 6px 0 15px;
+    &:not(:last-child) {
+      margin-bottom: 2px;
+    }
+  }
+
+  &-category {
+    flex: 1 0 auto;
+    display: flex;
+    @include font(normal, bold, 11, 15, 'Montserrat', start, uppercase);
+    align-items: center;
+    color: $dark-shade_100;
+    letter-spacing: 0.8px;
+  }
+
+  &-panel {
+    flex: 0 1 92px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-count {
+    color: $dark-shade_100;
+    @include font(normal, bold, 12, 15, 'Montserrat', center, uppercase);
+  }
+  & .btn {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    font-size: 19px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgba(31, 32, 65, 0.5);
+    border: 1px solid #1f204140;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.3s ease 0s;
+    outline: none;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background: rgb(226, 226, 226);
+      }
+      &:focus {
+        box-shadow: 0 0 0 1px #676565;
+      }
+    }
+  }
+}

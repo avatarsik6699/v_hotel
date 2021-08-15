@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column;
   max-width: 320px;
-  @include font("Montserrat");
+  @include font-family('Montserrat');
 
   &_type-subscription {
     max-width: 268px;
@@ -18,7 +18,7 @@
 
   &__input {
     background: #fff;
-    border: 1px solid rgba(31,32,65,.25);
+    border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 4px;
     padding: 12px 15px;
     font-size: 14px;

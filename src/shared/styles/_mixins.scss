@@ -1,7 +1,11 @@
+$maxWidth: 1440px;
+$maxWidthContainer: 1240 + 30; //15 + 15 padding;
+
 @mixin font-face(
   $font-family,
   $file-path,
   $weight: normal,
+  $font-type: 'all',
   $style: normal,
   $asset-pipeline: false
 ) {
@@ -10,13 +14,59 @@
     font-family: $file-path;
     font-weight: $weight;
     font-style: $style;
-    src: url('/src/assets/fonts/#{$file-path}/#{$font-family}.eot');
-    src: local('☺'), url('/src/assets/fonts/#{$file-path}/#{$font-family}.woff') format('woff'),
-      url('/src/assets/fonts/#{$file-path}/#{$font-family}.ttf') format('truetype'),
-      url('/src/assets/fonts/#{$file-path}/#{$font-family}.svg') format('svg');
+    @if $font-type == 'all' {
+      src: url('/src/assets/fonts/#{$file-path}/#{$font-family}.eot');
+      src: local('☺'),
+        url('/src/assets/fonts/#{$file-path}/#{$font-family}.woff')
+          format('woff'),
+        url('/src/assets/fonts/#{$file-path}/#{$font-family}.ttf')
+          format('truetype'),
+        url('/src/assets/fonts/#{$file-path}/#{$font-family}.svg') format('svg');
+    } @else {
+      src: url('/src/assets/fonts/#{$file-path}/#{$font-family}.#{$font-type}')
+        format('truetype');
+    }
   }
 }
 
-@mixin font($font-name) {
+@mixin font-family($font-name) {
   font-family: $font-name, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+//short-font--------------------------------
+@function getFontFamily($fn) {
+  @return $fn, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@mixin font($s, $w, $fs, $lh, $fn, $ta: start, $tt: none) {
+  font: $s $w ($fs + px)/ ($lh + px) getFontFamily($fn);
+  text-align: $ta;
+  text-transform: $tt;
+}
+
+// adaptive-value----------------------------------------------
+@function get-property-value($bounding-width, $minSize, $addSize) {
+  @return calc(
+    #{$minSize + px} + #{$addSize} *
+      ((100vw - 320px) / #{$bounding-width - 320})
+  );
+}
+
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if $type== 1 {
+    // только если меньше контейнера
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: get-property-value($maxWidthContainer, $minSize, $addSize);
+    }
+  } @else if $type== 2 {
+    // только если больше контейнера
+    #{$property}: $startSize + px;
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: get-property-value($maxWidth, $minSize, $addSize);
+    }
+  } @else {
+    #{$property}: get-property-value($maxWidth, $minSize, $addSize);
+  }
 }

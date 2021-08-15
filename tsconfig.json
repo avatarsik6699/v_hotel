@@ -16,11 +16,14 @@
     "baseUrl": "src",
     "paths": {
       "@root": ["src"],
-      "@fonts": ["fonts"]
+      "@fonts": ["fonts"],
+      "shared": ["shared"],
+      "@assets": ["assets"]
     }
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "./custom.d.ts"
   ],
   "exclude": [
     "node_modules",

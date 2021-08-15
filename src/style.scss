@@ -1,4 +1,12 @@
-@import '~normalize.css';
 @import './shared/styles/fonts';
+@import './shared/styles/variables';
+@import './shared/styles/mixins';
+@import './shared/styles/global';
 
-@import './shared/views/Field/style.scss'
+@import './shared/views/Field/style.scss';
+@import './shared/views/Dropdown/style.scss';
+
+.dropdown-wrapper {
+    max-width: 267px;
+  margin-left: 50px;
+}

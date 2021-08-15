@@ -1,0 +1,50 @@
+@import "./Menu/style.scss";
+
+.dropdown {
+  $root: &;
+  position: relative;
+  &__field {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    border: none;
+    color: $dark-shade_75;
+  }
+
+  &__label {
+    @include font(normal, bold, 12, 15, 'Montserrat');
+    text-transform: uppercase;
+    color: #1f2041;
+    margin-bottom: 6px;
+  }
+
+  &__input {
+    @include font-family('Montserrat');
+    background: white;
+    border: 1px solid #1F204180;
+    border-radius: 2px;
+    text-align: start;
+    color: $dark-shade_75;
+    letter-spacing: 0.1px;
+    padding: 12px 0 13px 14px;
+    cursor: pointer;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &__icon {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    fill: $dark-shade_75;
+    right: 16px;
+    top: 35px;
+    cursor: pointer;
+    transition: transform 0.3s ease 0s;
+    transform: rotate(180deg);
+    &._opened {
+      transform: rotate(0deg);
+    }
+  }
+}
