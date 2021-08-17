@@ -177,14 +177,14 @@ class Dropdown {
   }
 }
 
-const dropdown = new Dropdown('.dropdown-wrapper', {
-  items: [
-    { id: 1, text: 'Спальни', defaultValue: 1 },
-    { id: 2, text: 'Кровати', defaultValue: 2 },
-    { id: 3, text: 'Ванные комнаты', defaultValue: 0 },
-  ],
-  templateData: {
-    value: 'Сколько гостей',
-    label: 'kek',
-  },
-});
+// const dropdown = new Dropdown('.dropdown-wrapper', {
+//   items: [
+//     { id: 1, text: 'Спальни', defaultValue: 1 },
+//     { id: 2, text: 'Кровати', defaultValue: 2 },
+//     { id: 3, text: 'Ванные комнаты', defaultValue: 0 },
+//   ],
+//   templateData: {
+//     value: 'Сколько гостей',
+//     label: 'kek',
+//   },
+// });
