@@ -1,9 +1,10 @@
-@import "./Menu/style.scss";
+@import './Menu/style.scss';
 
 .dropdown {
   $root: &;
   position: relative;
   &__field {
+    position: relative;
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
@@ -22,15 +23,18 @@
   &__input {
     @include font-family('Montserrat');
     background: white;
-    border: 1px solid #1F204180;
+    border: 1px solid #1f204180;
     border-radius: 2px;
     text-align: start;
     color: $dark-shade_75;
     letter-spacing: 0.1px;
-    padding: 12px 0 13px 14px;
+    padding: 12px 30px 13px 14px;
     cursor: pointer;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &__icon {
@@ -39,7 +43,7 @@
     height: 12px;
     fill: $dark-shade_75;
     right: 16px;
-    top: 35px;
+    top: 18px;
     cursor: pointer;
     transition: transform 0.3s ease 0s;
     transform: rotate(180deg);

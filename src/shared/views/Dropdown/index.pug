@@ -4,8 +4,8 @@ include ./Menu/index.pug
 
 mixin Dropdown({type, isDisabled, placeholder, value, label} = defaultProps)
   .dropdown
+    span.dropdown__label=label
     .dropdown__field
-      span.dropdown__label=label
       input.dropdown__input(
         type=type 
         value=value)

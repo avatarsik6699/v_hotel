@@ -19,7 +19,7 @@
     "fsd/hof-name-prefix": "error",
     "fsd/no-heavy-constructor": "off", // запрещает инициализировать $el в DomManipulator
     "fsd/jq-cache-dom-elements": "error",
-    "fsd/jq-use-js-prefix-in-selector": "error",
+    // "fsd/jq-use-js-prefix-in-selector": "error",
     "fsd/no-function-declaration-in-event-listener": "error",
     "fsd/split-conditionals": "error",
     "import/extensions": "off",
@@ -30,7 +30,8 @@
     "@typescript-eslint/no-empty-function": "off", // не дает делать побочные эффекты в функциях
     "lines-between-class-members": "off", // не позволяет группировать свойства в классе
     "class-methods-use-this": "off", // не дает нормально использовать классы
-    "@typescript-eslint/no-namespace": "off" // полностью запрещает юзать неймспейсы
+    "@typescript-eslint/no-namespace": "off", // полностью запрещает юзать неймспейсы
+    "fsd/jq-use-js-prefix-in-selector": "off" //пока что офф
   },
 
   "plugins": ["@typescript-eslint", "prettier", "fsd"],
