@@ -1,0 +1,48 @@
+$border_active-color: #bc9cff;
+$slider_active-color: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+
+.toggle {
+  $root: &;
+  display: inline-block;
+  position: relative;
+  &__label {
+    display: inline-block;
+    width: 2.8em;
+    height: 1.4em;
+    background: #ffffff;
+    border: 1px solid $dark-shade_25;
+    border-radius: 0.7em;
+    transition: all 0.3s ease 0s;
+    &::before {
+      content: '';
+      background: $dark-shade_25;
+      display: inline-block;
+      border-radius: 10px;
+      height: 1em;
+      width: 1em;
+      transition: transform 0.3s ease 0s;
+      transform: translate(2px, 3px);
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &:checked + #{$root}__label {
+      &::before {
+        transform: translate(23px, 3px);
+        background: $slider_active-color;
+      }
+
+      & {
+        border: 1px solid $border_active-color;
+      }
+    }
+
+    @include disabled-input(#{$root}__label);
+    @include focus-input(#{$root}__label, #a174ff30);
+    @include hover-input(#{$root}__label, #a174ff30, 'shadow')
+  }
+}

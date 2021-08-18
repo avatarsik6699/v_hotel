@@ -1,5 +1,6 @@
-include /shared/views/Field/index.pug
-include /shared/views/Checkbox/index.pug
+//- include /shared/views/Field/index.pug
+//- include /shared/views/Checkbox/index.pug
+include /shared/views/Like/index.pug
 
 doctype html
 html(lang="en")
@@ -12,4 +13,5 @@ html(lang="en")
     h1 Hello world
     //- +Field({placeholder:"Email", label:"Text field"})
     //- +Field({placeholder:"Email", label:"Text field", type:"subscription"})
-    +Checkbox()
+    //- +Like()
+    .like-wrapper

@@ -1,0 +1,19 @@
+include /shared/utiles/svg.pug
+-
+  const props = {}
+  const gradient = [
+    {
+      id: "favorite_gradient", 
+      x1:"4.93026", 
+      y1:"-6", 
+      x2:"4.93026", 
+      y2:"14", 
+      stopColors: [{color: "#BC9CFF"}, {color: "#8BA4F9", offset: "1"}]
+    }
+  ]
+
+mixin Like({} = props)
+  .like
+    span.like__icon
+      +svg({id: 'favorite', style: {fill: "favorite_gradient"}, gradient})
+    span.like__count 12

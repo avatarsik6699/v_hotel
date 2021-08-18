@@ -6,7 +6,8 @@ ul {
   padding: 0;
 }
 
-:root {
+:root, body, html, *, *::before, *::after {
+  box-sizing: border-box;
   @include font-family('Montserrat');
   font-size: $fs;
 }

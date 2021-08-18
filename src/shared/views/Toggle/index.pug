@@ -1,0 +1,7 @@
+-const props = {isDisabled: false} // Interface
+
+mixin Toggle({isDisabled} = props)
+  //- -const disabled = isDisabled ? 'disabled' : '';
+  .toggle
+    input.toggle__slider(type="checkbox" id="toggle" disabled)
+    label.toggle__label(for="toggle") 

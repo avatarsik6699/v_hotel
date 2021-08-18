@@ -70,3 +70,26 @@ $maxWidthContainer: 1240 + 30; //15 + 15 padding;
     #{$property}: get-property-value($maxWidth, $minSize, $addSize);
   }
 }
+
+@mixin disabled-input($selector) {
+  &:disabled + #{$selector} {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin focus-input($selector, $color) {
+  &:focus + #{$selector} {
+    box-shadow: 0 0 0 0.1rem $color;
+  }
+}
+
+@mixin hover-input($selector, $color, $el: 'border') {
+  &:not(:disabled):not(:checked) + #{$selector}:hover {
+    @if $el == 'border' {
+      border: 1px solid $color;
+    } @else {
+      box-shadow: 0 0 0 0.1rem $color;
+    }
+  }
+}

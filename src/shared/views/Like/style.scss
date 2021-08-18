@@ -1,0 +1,78 @@
+@mixin change-stop-color($c1, $c2) {
+  & stop:first-child {
+    stop-color: $c1;
+  }
+
+  & stop:last-child {
+    stop-color: $c2;
+  }
+}
+
+.like {
+  $root: &;
+  cursor: pointer;
+
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $dark-shade_25;
+
+  border-radius: 10px;
+  width: 39px;
+  height: 19px;
+  padding: 0 0 0 3px;
+
+  transition: all 0.3s ease 0s;
+  user-select: none;
+
+  &:hover {
+    border: 1px solid #bc9cff;
+    #{$root}__icon {
+      @include change-stop-color(#bc9cff, #8ba4f9);
+    }
+    #{$root}__count {
+      color: #bc9cff;
+    }
+  }
+
+  &._checked {
+    border: 1px solid #bc9cff;
+    #{$root}__icon {
+      @include change-stop-color(#bc9cff, #8ba4f9);
+    }
+
+    #{$root}__icon > .icon {
+      stroke: transparent;
+      fill: url(#favorite-gradient);
+    }
+
+    #{$root}__count {
+      color: #bc9cff;
+    }
+  }
+
+  &__icon {
+    width: 10px;
+    height: 13px;
+    @include change-stop-color($dark-shade_25, $dark-shade_25);
+    & stop {
+      transition: all 0.3s ease;
+    }
+
+    & > .icon {
+      fill: transparent;
+      stroke: url(#favorite-gradient);
+    }
+  }
+
+  &__count {
+    @include font(normal, normal, 10, 13, 'Montserrat', center, none);
+    transition: color 0.3s ease 0s;
+    color: $dark-shade_25;
+    padding-right: 9px;
+
+    &[data-count='99+'] {
+      padding-right: 3px;
+    }
+  }
+}

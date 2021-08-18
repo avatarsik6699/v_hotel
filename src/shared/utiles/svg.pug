@@ -1,10 +1,14 @@
-mixin svg({className= 'icon', id= '', style={}, gradient= null})
+-const defaultProps = {className: 'icon', id: '', style: '', gradient: null}
+
+mixin svg({className, id, style, gradient} = defaultProps)
   //- -const validStyle = Object.entries(style).reduce((s, [k,v]) => s + `${k}:${v}`, '').trim()
-  -const validStyle = {...style, 'width': '100%', height: '100%'}
+  -const fill = style.fill && gradient ? `url(#${style.fill})` : (style.fill || 'none');
+  -const validStyle = {...style, fill, 'width': '100%', height: '100%'}
 
   svg(class=className style=validStyle)
     use(xlink:href=`${require('.//assets/images/sprite.svg')}#${id}`)
     if gradient
-      linearGradient(id=gradient.id x1="9" y1="-13" x2="9" y2="31" gradientUnits="userSpaceOnUse")
-        stop(stop-color="#BC9CFF")
-        stop(offset="1" stop-color="#8BA4F9")
+      each item in gradient
+        linearGradient(id=item.id x1=item.x1 y1=item.y1 x2=item.x2 y2=item.y2 gradientUnits="userSpaceOnUse")
+          each stop in item.stopColors
+            stop(stop-color=stop.color offset=`${stop.offset || 0}`)
