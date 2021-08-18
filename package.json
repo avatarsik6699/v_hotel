@@ -41,6 +41,7 @@
     "image-webpack-loader": "^7.0.1",
     "mini-css-extract-plugin": "^1.6.0",
     "normalize.css": "^8.0.1",
+    "nouislider": "^15.4.0",
     "postcss-discard-comments": "^5.0.1",
     "postcss-fixes": "^2.0.1",
     "postcss-loader": "^6.1.1",
@@ -55,9 +56,11 @@
     "style-loader": "^2.0.0",
     "ts-loader": "^9.1.1",
     "typescript": "^4.2.4",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "wnumb": "^1.2.0"
   },
   "devDependencies": {
+    "@types/wnumb": "^1.2.1",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "eslint-import-resolver-typescript": "^2.4.0",
     "html-webpack-plugin": "^5.3.1",
