@@ -6,9 +6,15 @@ ul {
   padding: 0;
 }
 
-:root, body, html, *, *::before, *::after {
+:root,
+body,
+html,
+*,
+*::before,
+*::after {
+  --main-font: Montserrat, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--main-font);
   box-sizing: border-box;
-  @include font-family('Montserrat');
   font-size: $fs;
 }
 

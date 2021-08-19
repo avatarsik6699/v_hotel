@@ -1,0 +1,16 @@
+include /shared/utiles/svg.pug
+mixin Button(props = {})
+  -
+    const {iconId, theme, isDisabled, size} = {
+      ...{iconId: null, theme: 'fill', size: 'default'}, 
+      ...props
+    }
+    const themes = ['transparent', 'fill', 'none'];
+    const btnCls = `button _theme-${themes.find(t => t === theme)} _size-${size}`
+
+  button(class=btnCls disabled=isDisabled)
+    span.button__text click me
+    if iconId
+      span.button__icon
+        +svg({id: iconId, style: {fill: 'white'}})
+

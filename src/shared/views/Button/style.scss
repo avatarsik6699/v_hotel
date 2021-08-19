@@ -1,0 +1,105 @@
+.button {
+  $root: &;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 22px;
+  border: none;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+
+  &:disabled {
+    &._theme-transparent::after {
+      opacity: 0.5;
+    }
+
+    &._theme-fill {
+      opacity: 0.5;
+      #{$root}__text {
+        opacity: 0.5;
+      }
+    }
+
+    &._theme-none {
+      #{$root}__text {
+        color: $dark-shade_50;
+      }
+    }
+  }
+
+  &:not(:disabled):hover {
+    &._theme-transparent::after {
+      opacity: 0.8;
+    }
+
+    &._theme-fill {
+      opacity: 0.8;
+    }
+
+    #{$root}__text {
+      opacity: 0.8;
+    }
+  }
+
+  &._theme-none {
+    background: transparent;
+    padding: 0;
+    width: auto;
+    #{$root}__text {
+      color: #bc9cff;
+    }
+  }
+
+  &._theme-fill {
+    padding: 15px 0;
+    max-width: 99px;
+    background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    #{$root}__text {
+      color: white;
+    }
+  }
+
+  &._theme-transparent {
+    padding: 12px 0;
+    max-width: 93px;
+    background: white;
+
+    #{$root}__text {
+      color: #bc9cff;
+    }
+
+    &::after {
+      transition: all 0.3s ease 0s;
+      content: '';
+      display: inline-block;
+      position: absolute;
+      background: linear-gradient(180deg, #bc9cff, #8ba4f9);
+      z-index: -1;
+      border-radius: 2em;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+    }
+  }
+
+  &._size-large {
+    max-width: 319px;
+  }
+
+  &__text {
+    transition: all 0.3s ease 0s;
+    @include font(normal, bold, 12, 15, 'Montserrat', center, uppercase);
+    letter-spacing: -0.4px;
+  }
+
+  &__icon {
+    width: 1.2em;
+    height: 1.2em;
+    position: absolute;
+    top: 15px;
+    right: 12px;
+  }
+}

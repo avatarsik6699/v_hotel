@@ -1,6 +1,6 @@
 //- include /shared/views/Field/index.pug
 //- include /shared/views/Checkbox/index.pug
-include /shared/views/Like/index.pug
+include /shared/views/Button/index.pug
 
 doctype html
 html(lang="en")
@@ -15,4 +15,5 @@ html(lang="en")
     //- +Field({placeholder:"Email", label:"Text field", type:"subscription"})
     //- +Like()
     //- .like-wrapper
-    .slider-wrapper
+    //- .slider-wrapper
+    +Button({theme: 'none', isDisabled: false, size: 'default'})

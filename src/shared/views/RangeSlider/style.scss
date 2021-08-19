@@ -7,12 +7,6 @@
   border-radius: initial;
   box-shadow: none;
 
-  .#{$prefix}-base {
-    border-radius: 3px;
-    border: 1px solid $dark-shade_25;
-    height: 6px;
-  }
-
   &__header {
     display: flex;
     flex-flow: row nowrap;
@@ -41,12 +35,19 @@
     color: $dark-shade_50;
   }
 
+  .#{$prefix}-base {
+    border-radius: 3px;
+    border: 1px solid $dark-shade_25;
+    height: 6px;
+  }
+
   & .#{$prefix}-connect {
     background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
     border-radius: 3px;
   }
 
   & .#{$prefix}-handle {
+    cursor: pointer;
     height: 16px;
     right: -8px;
     top: -6px;
