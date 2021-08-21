@@ -8,6 +8,14 @@ class Dom {
       this.$el.insertAdjacentElement(correctPos, template);
     }
   }
+
+  clear() {
+    this.$el.innerHTML = '';
+  }
+
+  isEmpty() {
+    return this.$el.children.length === 0;
+  }
 }
 
 export const $ = (
