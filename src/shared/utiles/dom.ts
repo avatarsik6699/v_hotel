@@ -16,6 +16,10 @@ class Dom {
   isEmpty() {
     return this.$el.children.length === 0;
   }
+
+  remove() {
+    this.$el.remove();
+  }
 }
 
 export const $ = (

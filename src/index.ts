@@ -1,6 +1,16 @@
 import './style.scss';
 import './shared/views/Dropdown/index';
 import { Pagination } from 'shared/views/Pagination';
+// import { Datepicker } from 'vanillajs-datepicker';
+import { $ } from 'shared/utiles/dom';
+import { Calendar } from 'shared/views/Calendar';
+
+const c = new Calendar('.foo', {
+  format: 'dd.mm.yyyy',
+  // allowOneSidedRange: true
+  // allowOneSidedRange: true,
+});
+// import { Datepicker } from 'vanillajs-datepicker';
 
 // const btns = [
 //   { type: 'prev', template: `<button data-type="prev">...</button>` },

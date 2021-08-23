@@ -2,31 +2,22 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "lib": [
-      "es2015",
-      "es2017",
-      "dom",
-      "esnext"
-    ],
+    "lib": ["es2015", "es2017", "dom", "esnext"],
     "sourceMap": true,
     "strict": true,
     "removeComments": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
     "baseUrl": "src",
+    "allowJs": true,
     "paths": {
       "@root": ["src"],
       "@fonts": ["fonts"],
       "shared": ["shared"],
       "@assets": ["assets"]
-    }
+    },
+    "typeRoots": ["./types"]
   },
-  "include": [
-    "src/**/*.ts",
-    "./custom.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "./webpack.config.js"
-  ]
+  "include": ["src/**/*.ts", "./custom.d.ts"],
+  "exclude": ["node_modules", "./webpack.config.js"]
 }

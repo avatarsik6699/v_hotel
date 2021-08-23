@@ -1,0 +1,170 @@
+@import '/src/shared/styles/mixins';
+@import '/src/shared/styles/variables';
+@import '/src/shared/views/Button/style.scss';
+
+.litepicker {
+  box-sizing: border-box !important;
+  max-width: 214px !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(31, 32, 65, 0.25) !important;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05) !important;
+  border-radius: 4px !important;
+
+  & .container__main {
+    width: 100%;
+
+    & .container__months {
+      width: 100%;
+
+      & .month-item {
+        box-sizing: border-box;
+        width: 100%;
+
+        &-header {
+          display: flex;
+          padding-top: 4px;
+
+          & > div {
+            flex-basis: 82px !important;
+          }
+
+          & .button-previous-month,
+          & .button-next-month {
+            width: 22px;
+            height: 22px;
+            cursor: pointer !important;
+            & > .icon {
+              cursor: pointer !important;
+              fill: #bc9cff !important;
+            }
+
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+
+          & .button-previous-month {
+            transform: rotate(180deg);
+          }
+        }
+
+        &-name {
+          @include font(normal, bold, 13, 23, Montserrat, center, capitalize);
+          color: #1f2041;
+          margin-right: 3px !important;
+        }
+
+        &-year {
+          @include font(normal, bold, 13, 23, Montserrat, center, capitalize);
+          color: #1f2041;
+        }
+
+        &-weekdays-row {
+          @include font(normal, bold, 10, 14, Montserrat, center, capitalize);
+          color: #bc9cff;
+          padding: 8px 9px 0 9px;
+        }
+
+        & .container__days {
+          & > div {
+            padding: 1px 0;
+          }
+          & .day-item {
+            @include font(normal, normal, 8, 15, Montserrat, start, none);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: $dark-shade_50;
+            cursor: pointer;
+            width: 26px;
+            height: 26px;
+            transition: none;
+
+            &:hover {
+              background: linear-gradient(
+                rgba(188, 156, 255, 0.2),
+                rgba(139, 164, 249, 0.2)
+              );
+
+              &:not(.is-in-range) {
+                border-radius: 22px;
+              }
+              box-shadow: none;
+              color: $dark-shade_75;
+            }
+
+            &.is-in-range {
+              background: linear-gradient(
+                rgba(188, 156, 255, 0.2),
+                rgba(139, 164, 249, 0.2)
+              );
+            }
+
+            &:not(.is-in-range):not(.is-start-date):not(.is-end-date).is-today {
+              color: #ffffff;
+              background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+              border-radius: 22px;
+            }
+
+            &.is-start-date,
+            &.is-end-date {
+              position: relative;
+              background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+              border-radius: 22px;
+              color: white;
+
+              &::before {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                left: 0;
+
+                background: linear-gradient(
+                  rgba(188, 156, 255, 0.2),
+                  rgba(139, 164, 249, 0.2)
+                );
+              }
+            }
+
+            &.is-start-date {
+              &.is-flipped::before {
+                border-top-right-radius: 22px;
+                border-bottom-right-radius: 22px;
+              }
+
+              &:not(.is-flipped):before {
+                border-top-left-radius: 22px;
+                border-bottom-left-radius: 22px;
+              }
+            }
+
+            &.is-end-date {
+              &.is-flipped::before {
+                border-top-left-radius: 22px;
+                border-bottom-left-radius: 22px;
+              }
+
+              &:not(.is-flipped):before {
+                border-top-right-radius: 22px;
+                border-bottom-right-radius: 22px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 13px;
+
+    & .button__text {
+      font-size: 8px;
+      letter-spacing: -0.1px;
+    }
+  }
+}

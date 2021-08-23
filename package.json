@@ -39,6 +39,7 @@
     "html-loader": "^2.1.2",
     "husky": "^6.0.0",
     "image-webpack-loader": "^7.0.1",
+    "litepicker": "^2.0.11",
     "mini-css-extract-plugin": "^1.6.0",
     "normalize.css": "^8.0.1",
     "nouislider": "^15.4.0",
@@ -57,9 +58,11 @@
     "ts-loader": "^9.1.1",
     "typescript": "^4.2.4",
     "url-loader": "^4.1.1",
+    "vanillajs-datepicker": "^1.1.4",
     "wnumb": "^1.2.0"
   },
   "devDependencies": {
+    "@types/node": "^16.7.1",
     "@types/wnumb": "^1.2.1",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "eslint-import-resolver-typescript": "^2.4.0",
