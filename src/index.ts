@@ -5,11 +5,7 @@ import { Pagination } from 'shared/views/Pagination';
 import { $ } from 'shared/utiles/dom';
 import { Calendar } from 'shared/views/Calendar';
 
-const c = new Calendar('.foo', {
-  format: 'dd.mm.yyyy',
-  // allowOneSidedRange: true
-  // allowOneSidedRange: true,
-});
+const c = new Calendar('.foo');
 // import { Datepicker } from 'vanillajs-datepicker';
 
 // const btns = [

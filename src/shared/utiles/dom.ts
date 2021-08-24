@@ -20,6 +20,10 @@ class Dom {
   remove() {
     this.$el.remove();
   }
+
+  hide() {
+    this.$el.hidden = true;
+  }
 }
 
 export const $ = (
