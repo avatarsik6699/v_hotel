@@ -1,0 +1,27 @@
+.rating {
+  display: flex;
+  $root: &;
+  &__list {
+    display: flex;
+    flex-flow: row-reverse;
+    gap: 4px;
+  }
+
+  &__item:hover ~ &__item,
+  &__item:hover {
+    #{$root}__star > svg {
+      fill: url(#gradient-star) !important;
+      stroke: none !important;
+    }
+  }
+
+  &__star {
+    & > svg {
+      transition: all 0.3s ease 0s;
+    }
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}

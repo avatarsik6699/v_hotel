@@ -24,6 +24,12 @@ class Dom {
   hide() {
     this.$el.hidden = true;
   }
+
+  get(selector: string) {
+    const target = this.$el.querySelector(selector) as HTMLElement;
+    if (!target) return null;
+    return new Dom(target);
+  }
 }
 
 export const $ = (

@@ -4,8 +4,14 @@ import { Pagination } from 'shared/views/Pagination';
 // import { Datepicker } from 'vanillajs-datepicker';
 import { $ } from 'shared/utiles/dom';
 import { Calendar } from 'shared/views/Calendar';
+import { Rating } from './shared/views/Rating/index';
 
-const c = new Calendar('.foo');
+const rating = new Rating('.rating-wrapper', {
+  selectedCount: 0,
+  totalCount: 0,
+});
+// const c = new Calendar('.foo');
+
 // import { Datepicker } from 'vanillajs-datepicker';
 
 // const btns = [
